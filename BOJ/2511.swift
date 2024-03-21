@@ -4,7 +4,7 @@ var a = readLine()!.split(separator: " ").map{Int(String($0))!}
 var b = readLine()!.split(separator: " ").map{Int(String($0))!}
 
 var score = [0, 0]
-var lastwin = ""
+var lastwin = "D"
 
 for i in 0..<10 {
     if a[i] > b[i] {
@@ -21,16 +21,12 @@ for i in 0..<10 {
 
 print(score[0], score[1])
 
-if lastwin == "" {
-    print("D")
+if score[0] == score[1] {
+    print(lastwin)
 } else {
-    if score[0] == score[1] {
-        print(lastwin)
+    if score[0] > score[1] {
+        print("A")
     } else {
-        if score[0] > score[1] {
-            print("A")
-        } else {
-            print("B")
-        }
+        print("B")
     }
 }
