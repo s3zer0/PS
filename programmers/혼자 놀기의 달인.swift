@@ -1,10 +1,11 @@
 import Foundation
 
 func solution(_ cards: [Int]) -> Int {
+    var n = cards.count
     var visited = [Bool](repeating: false, count: cards.count)
     var cycleLengthes = [Int]()
 
-    for i in 0..<cards.count {
+    for i in 0..<n {
         if !visited[i] {
             var current = i
             var cycleLength = 0
@@ -15,7 +16,7 @@ func solution(_ cards: [Int]) -> Int {
                 cycleLength += 1
             }
             
-            if cycleLength == cards.count { return 0 }
+            if cycleLength == n { return 0 }
             
             cycleLengthes.append(cycleLength)
         }
