@@ -1,13 +1,11 @@
 import Foundation
 
 func addElement(_ base: [Int: Int], _ arr: [Int]) -> [Int: Int] {
-    var result = [Int: Int]()
-    
-    for (key, value) in base {
-        for value1 in arr { result[key + value1, default: 0] += value }
+    return base.reduce(into: [Int: Int]()) { result, baseElement in
+        arr.forEach {
+            result[baseElement.key + $0, default: 0] += baseElement.value
+        }
     }
-    
-    return result
 }
 
 
